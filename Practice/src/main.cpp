@@ -4,6 +4,7 @@
 
 // https://en.wikipedia.org/wiki/Kahan_summation_algorithm
 // https://github.com/delfrrr/delaunator-cpp/tree/master/include
+// @brief: calculate the sum of all items in a vector
 
 double sum(const std::vector<double>& x) {
     double sum = x[0];
@@ -32,6 +33,29 @@ bool orient(
 }
 
 
+std::pair<double, double> circumcenter(
+    const double ax,
+    const double ay,
+    const double bx,
+    const double by,
+    const double cx,
+    const double cy) {
+    const double dx = bx - ax;
+    const double dy = by - ay;
+    const double ex = cx - ax;
+    const double ey = cy - ay;
+
+    const double bl = dx * dx + dy * dy;
+    const double cl = ex * ex + ey * ey;
+    const double d = dx * ey - dy * ex;
+
+    const double x = ax + (ey * bl - dy * cl) * 0.5 / d;
+    const double y = ay + (dx * cl - ex * bl) * 0.5 / d;
+
+    return std::make_pair(x, y);
+}
+
+
 int main(int argc, const char** argv) {
 
     std::ios::sync_with_stdio(false); // speed up for cin and std::std::cout
@@ -43,6 +67,7 @@ int main(int argc, const char** argv) {
     std::cout << sum(vec) << '\n';
     //std::cout << std::numeric_limits<double>::max;
 
-    std::cout << orient(2, 0, 1, 1, 0, 0);
+    std::cout << orient(2, 0, 1, 1, 0, 0) << '\n';
+    std::cout << circumcenter(0, 0, 1, 1, 2, 0).first << ' ' << circumcenter(0, 0, 1, 1, 2, 0).second << '\n';
 	return 0;
 }
