@@ -1,6 +1,8 @@
 #include<iostream>
 #include<vector>
 #include<limits>
+#include<Eigen/Dense>
+#include<Eigen/Core>
 
 // https://en.wikipedia.org/wiki/Kahan_summation_algorithm
 // https://github.com/delfrrr/delaunator-cpp/tree/master/include
@@ -69,5 +71,11 @@ int main(int argc, const char** argv) {
 
     std::cout << orient(2, 0, 1, 1, 0, 0) << '\n';
     std::cout << circumcenter(0, 0, 1, 1, 2, 0).first << ' ' << circumcenter(0, 0, 1, 1, 2, 0).second << '\n';
-	return 0;
+	
+    Eigen::VectorXd test_eigen(3);
+    test_eigen(0) = 1;
+    test_eigen(1) = 2;
+    test_eigen(2) = 3;
+    std::cout << test_eigen;
+    return 0;
 }
