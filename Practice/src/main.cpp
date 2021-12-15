@@ -3,6 +3,7 @@
 #include<limits>
 #include<Eigen/Dense>
 #include<Eigen/Core>
+#include"Geometry.h"
 
 // https://en.wikipedia.org/wiki/Kahan_summation_algorithm
 // https://github.com/delfrrr/delaunator-cpp/tree/master/include
@@ -66,16 +67,26 @@ int main(int argc, const char** argv) {
     vec.emplace_back(1.0);
     vec.emplace_back(-2.0);
     vec.emplace_back(3.0);
-    std::cout << sum(vec) << '\n';
+    //std::cout << sum(vec) << '\n';
     //std::cout << std::numeric_limits<double>::max;
 
-    std::cout << orient(2, 0, 1, 1, 0, 0) << '\n';
-    std::cout << circumcenter(0, 0, 1, 1, 2, 0).first << ' ' << circumcenter(0, 0, 1, 1, 2, 0).second << '\n';
+    //std::cout << orient(2, 0, 1, 1, 0, 0) << '\n';
+    //std::cout << circumcenter(0, 0, 1, 1, 2, 0).first << ' ' << circumcenter(0, 0, 1, 1, 2, 0).second << '\n';
 	
     Eigen::VectorXd test_eigen(3);
     test_eigen(0) = 1;
     test_eigen(1) = 2;
     test_eigen(2) = 3;
-    std::cout << test_eigen;
+    //std::cout << test_eigen;
+
+    geo::Vector3d vec1(1, 1, 1);
+    geo::Vector3d vec2(2, 2, 2);
+    vec1 += vec2;
+    //std::cout << vec1.v[0] << '\n';
+    //std::cout << vec1.vector_length();
+
+    geo::Vector3d vec3(vec1+vec2);
+    std::cout << vec3.v[0];
+    
     return 0;
 }
