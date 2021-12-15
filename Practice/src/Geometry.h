@@ -26,12 +26,16 @@ namespace geo {
 		}
 		
 		double vector_length()const;
-
-		Vector3d normalized_vector();
-
+		Vector3d normalized_vector()const;
+		
 		void operator+=(const Vector3d& other);// NB: this operator would change the original vector
+		Vector3d operator+(const Vector3d& other)const; 
+		Vector3d operator-(const Vector3d& other)const;
+		Vector3d operator*(const double& s)const;
+		Vector3d operator/(const double& s)const;
 
-		Vector3d operator+(const Vector3d& other)const; // return reference?
+		double dot_product(const Vector3d& other)const;
+		Vector3d cross_product(const Vector3d& other)const;
 	};
 }
 

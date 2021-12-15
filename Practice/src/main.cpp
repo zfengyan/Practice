@@ -86,7 +86,10 @@ int main(int argc, const char** argv) {
     //std::cout << vec1.vector_length();
 
     geo::Vector3d vec3(vec1+vec2);
-    std::cout << vec3.v[0];
+    std::cout << vec3.normalized_vector().v[0] << '\n';
+
+    geo::Vector3d vec_d(vec3 / 0);
+    std::cout << vec_d.v[0];
     
     return 0;
 }
