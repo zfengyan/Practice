@@ -59,6 +59,22 @@ std::pair<double, double> circumcenter(
 }
 
 
+double verlet(double pos, double acc, double dt) {
+
+    double prev_pos = pos;
+    double time = 0;
+
+    while (pos > 0) {
+        time += dt;
+        double next_pos = pos * 2 - prev_pos + acc * dt * dt;
+        prev_pos = pos;
+        pos = next_pos;
+    }
+
+    return time;
+}
+
+
 int main(int argc, const char** argv) {
 
     std::ios::sync_with_stdio(false); // speed up for cin and std::std::cout
@@ -97,7 +113,9 @@ int main(int argc, const char** argv) {
     std::cout << plane.point_in_plane(p)<<'\n';
 
     geo::Triangle triangle;
-    std::cout << triangle.pa.x;
+    std::cout << triangle.pa.x << '\n';
+
+    std::cout << "verlet: " << verlet(5, -10, 0.01) << '\n';
 
     
     return 0;

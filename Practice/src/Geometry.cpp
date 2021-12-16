@@ -62,6 +62,6 @@ namespace geo {
 
 	// not class methods
 	bool point_collinear(const Point& pa, const Point& pb, const Point& pc) {
-
+		return false;
 	}
 }
