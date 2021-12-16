@@ -89,7 +89,16 @@ int main(int argc, const char** argv) {
     std::cout << vec3.normalized_vector().v[0] << '\n';
 
     geo::Vector3d vec_d(vec3 / 0);
-    std::cout << vec_d.v[0];
+    std::cout << vec_d.v[0] << '\n';
+
+    geo::Plane plane(1,1,1,0);
+    std::cout << plane.is_plane() << '\n';
+    geo::Point p(1, 1, 2);
+    std::cout << plane.point_in_plane(p)<<'\n';
+
+    geo::Triangle triangle;
+    std::cout << triangle.pa.x;
+
     
     return 0;
 }
