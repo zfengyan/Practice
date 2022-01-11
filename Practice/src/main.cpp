@@ -79,7 +79,8 @@ double verlet(double pos, double acc, double dt) {
 
 int main(int argc, const char** argv) {
 
-    GLFWwindow* window;
+    /* Initialize the window pointer with nullptr */
+    GLFWwindow* window(nullptr);
 
     /* Initialize the library */
     if (!glfwInit())
@@ -101,6 +102,13 @@ int main(int argc, const char** argv) {
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
+
+        /* User Modification */
+        glBegin(GL_TRIANGLES);
+        glVertex2f(-0.5f, -0.5f);
+        glVertex2f(0.0f, 0.5f);
+        glVertex2f(0.5f, -0.5f);
+        glEnd();
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
