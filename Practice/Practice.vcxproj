@@ -23,6 +23,7 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Comment.h" />
     <ClInclude Include="src\Geometry.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

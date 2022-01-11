@@ -26,5 +26,8 @@
     <ClInclude Include="src\Geometry.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\Comment.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
